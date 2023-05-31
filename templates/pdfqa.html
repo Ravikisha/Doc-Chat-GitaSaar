@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>QA with Docs</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', path='pdfqaStyle.css')}}"
+    />
+    <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js">
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              santoshi: ["Santoshi", "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div
+      class="w-full flex flex-col sm:flex-row flex-wrap sm:flex-nowrap flex-grow"
+    >
+      <div class="flex-shrink flex-grow-0">
+        <div x-cloak x-data="sidebar()" class="relative flex items-start">
+          <div class="absolute top-0 z-40 transition-all duration-300">
+            <div class="flex justify-end">
+              <button
+                @click="sidebarOpen = !sidebarOpen"
+                :class="{'hover:bg-gray-300': !sidebarOpen, 'hover:bg-gray-700': sidebarOpen}"
+                class="transition-all duration-300 w-8 p-1 mx-3 my-2 rounded-full focus:outline-none"
+              >
+                <svg
+                  viewBox="0 0 20 20"
+                  class="w-6 h-6 fill-current"
+                  :class="{'text-gray-600': !sidebarOpen, 'text-gray-300': sidebarOpen}"
+                >
+                  <path
+                    x-show="!sidebarOpen"
+                    fill-rule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                  <path
+                    x-show="sidebarOpen"
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            x-cloak
+            wire:ignore
+            :class="{'w-56': sidebarOpen, 'w-0': !sidebarOpen}"
+            class="relative top-0 bottom-0 left-0 z-30 block w-56 h-full min-h-screen overflow-y-auto text-gray-400 transition-all duration-300 ease-in-out bg-gray-900 shadow-lg overflow-x-hidden"
+          >
+            <div class="flex flex-col items-stretch justify-between h-full">
+              <div class="flex flex-col flex-shrink-0 w-full">
+                <div
+                  class="flex items-center justify-center px-8 py-3 text-center"
+                >
+                  <a
+                    href="#"
+                    class="text-xl leading-normal text-gray-200 focus:outline-none focus:ring font-bold"
+                    >Doc Chat</a
+                  >
+                </div>
+
+                <nav>
+                  <div
+                    class="flex-grow md:block md:overflow-y-auto overflow-x-hidden"
+                    :class="{'opacity-1': sidebarOpen, 'opacity-0': !sidebarOpen}"
+                  >
+                    <button
+                      class="flex justify-start items-center px-4 py-3 hover:bg-gray-800 hover:text-gray-400 focus:bg-gray-800 focus:outline-none focus:ring"
+                      onclick="selectSection('none')"
+                    >
+                    <i class="fa-solid fa-message w-5 h-5 text-white"></i>
+                      <span class="mx-4">Chat</span>
+                    </button>
+
+                    <button
+                      class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring"
+                      onclick="selectSection('uploadPdfFiles')"
+                    >
+                    <i class="fa-sharp fa-solid fa-upload w-5 h-5 text-white"></i>
+
+                      <span class="mx-4">Upload New</span>
+                    </button>
+
+                    <button
+                      class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring"
+                      onclick="selectSection('selectPdfVectorStore')"
+                    >
+                    <i class="fa-solid fa-list w-5 h-5 text-white"></i>
+                      <span class="mx-4">Select Pdf Vector</span>
+                    </button>
+                    <button
+                      class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring"
+                      onclick="selectSection('full_pdf_view')"
+                    >
+                    <i class="fa-solid fa-file-pdf w-5 h-5 text-white"></i>
+                      <span class="mx-4">Full Pdf View</span>
+                    </button>
+                    
+                  </div>
+                </nav>
+              </div>
+            </div>
+
+            <script>
+              function sidebar() {
+                return {
+                  sidebarOpen: true,
+                  sidebarProductMenuOpen: false,
+                  openSidebar() {
+                    this.sidebarOpen = true;
+                  },
+                  closeSidebar() {
+                    this.sidebarOpen = false;
+                  },
+                  sidebarProductMenu() {
+                    if (this.sidebarProductMenuOpen === true) {
+                      this.sidebarProductMenuOpen = false;
+                      window.localStorage.setItem(
+                        "sidebarProductMenuOpen",
+                        "close"
+                      );
+                    } else {
+                      this.sidebarProductMenuOpen = true;
+                      window.localStorage.setItem(
+                        "sidebarProductMenuOpen",
+                        "open"
+                      );
+                    }
+                  },
+                  checkSidebarProductMenu() {
+                    if (window.localStorage.getItem("sidebarProductMenuOpen")) {
+                      if (
+                        window.localStorage.getItem(
+                          "sidebarProductMenuOpen"
+                        ) === "open"
+                      ) {
+                        this.sidebarProductMenuOpen = true;
+                      } else {
+                        this.sidebarProductMenuOpen = false;
+                        window.localStorage.setItem(
+                          "sidebarProductMenuOpen",
+                          "close"
+                        );
+                      }
+                    }
+                  },
+                };
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+      <main
+        role="main"
+        class="w-full h-screen max-h-screen flex-grow bg-[#292B32] font-lato tracking-wide flex items-center justify-center"
+      >
+        <!-- Main -->
+        <!-- <div class="w-full h-screen "> -->
+        <!-- <h1 class="text-5xl font-bold text-gray-500">In progress</h1> -->
+        <!-- Content -->
+        <div class="bg-[#2F343C] p-12 h-full">
+          <!-- header components -->
+          <div class="flex items-center">
+            <div
+              class="bg-[#10A37F] flex items-center justify-center p-4 rounded-2xl"
+            >
+              <div class="w-8 h-8">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path
+                    d="M21.489 0.000137437C16.2361 0.000137437 11.5693 3.38105 9.94257 8.37121C8.27321 8.71517 6.69629 9.41057 5.31673 10.4111C3.93718 11.4117 2.78665 12.6944 1.94169 14.1741C-0.692807 18.7253 -0.0912288 24.447 3.43815 28.348C2.34851 31.6154 2.72248 35.191 4.46268 38.1498C7.08104 42.7172 12.3495 45.0579 17.505 43.9687C18.6337 45.2421 20.0211 46.2603 21.5747 46.9554C23.1282 47.6505 24.8122 48.0066 26.5142 47.9999C31.7671 47.9999 36.4339 44.619 38.0606 39.6288C41.4431 38.9296 44.3541 36.8164 46.0454 33.826C48.696 29.2747 48.0944 23.5531 44.5656 19.6521V19.6359C45.1039 18.0209 45.291 16.3095 45.1143 14.6164C44.9376 12.9232 44.4012 11.2873 43.5411 9.81804C40.9222 5.26676 35.6532 2.92546 30.5144 4.01461C29.3804 2.74456 27.9893 1.72987 26.4333 1.03778C24.8774 0.345687 23.192 -0.00800442 21.489 0.000137437ZM21.489 3.12129L21.4728 3.13742C23.587 3.13742 25.6199 3.86889 27.246 5.21838C27.1809 5.25063 27.0507 5.33185 26.9533 5.3808L17.3914 10.8911C16.9034 11.1675 16.6106 11.6876 16.6106 12.2567V25.1951L12.4964 22.8222V12.1265C12.4955 9.74073 13.4421 7.45216 15.1282 5.76354C16.8143 4.07493 19.1021 3.12496 21.489 3.12129ZM33.0077 6.8881C34.5923 6.88506 36.1496 7.3002 37.5222 8.09158C38.8948 8.88295 40.034 10.0225 40.8248 11.395C41.8654 13.2157 42.2555 15.345 41.8977 17.4093C41.8326 17.3603 41.7029 17.2958 41.6211 17.2468L32.0592 11.7199C31.8187 11.5839 31.547 11.5124 31.2707 11.5124C30.9943 11.5124 30.7227 11.5839 30.4821 11.7199L19.2774 18.1891V13.4426L28.5304 8.09475C29.8909 7.30635 31.4351 6.88998 33.0077 6.88753V6.8881ZM9.35771 11.8011V23.1631C9.35771 23.7322 9.65043 24.2362 10.1385 24.5288L21.3265 30.9819L17.1955 33.371L7.95863 28.0393C5.8944 26.8435 4.38918 24.8779 3.77339 22.5739C3.1576 20.27 3.48156 17.8159 4.67415 15.7505C5.7262 13.9277 7.3831 12.5309 9.35771 11.8011ZM30.791 14.6129L40.044 19.9447C44.3536 22.4317 45.8166 27.9258 43.3285 32.2334L43.3446 32.2496C42.2878 34.0702 40.6289 35.4681 38.661 36.1834V24.8208C38.661 24.2517 38.3683 23.7316 37.8803 23.4557L26.6761 16.9859L30.791 14.6129ZM23.9932 18.5307L28.7096 21.2613V26.7065L23.9932 29.4371L19.2774 26.7065V21.2613L23.9932 18.5307ZM31.4087 22.8222L35.5229 25.1951V35.8747C35.5229 40.8487 31.4899 44.8799 26.5304 44.8799V44.8638C24.4323 44.8638 22.3833 44.1323 20.7733 42.7834C20.8384 42.7511 20.9848 42.6694 21.066 42.6204L30.6279 37.1101C31.116 36.8337 31.4248 36.3136 31.4081 35.7445L31.4087 22.8222ZM28.7252 29.8115V34.5575L19.4722 39.8892C15.1626 42.3601 9.66599 40.8971 7.17785 36.6056H7.19398C6.13719 34.8011 5.76264 32.6556 6.12048 30.5914C6.18559 30.6403 6.31582 30.7048 6.39706 30.7538L15.9589 36.2807C16.1995 36.4167 16.4711 36.4882 16.7475 36.4882C17.0239 36.4882 17.2955 36.4167 17.5361 36.2807L28.7252 29.8115Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </div>
+            <span class="text-white ml-4 text-lg break-all">{{current_vectorstore}}</span>
+          </div>
+
+          <!-- header end  -->
+          <div class="w-full h-[1px] my-8 bg-[#4F5361]"></div>
+          
+
+          <!-- message section -->
+
+          <div
+            class="w-[600px] h-2/3 overflow-y-scroll scrollbar-hide space-y-4 message_section"
+          >
+            <div class="flex items-center justify-start">
+              <div
+                class="flex flex-col items-start justify-center text-white rounded-xl p-4 bg-[#3A3F47] rounded-tl-none message_box"
+              >
+                <p class="message_bot">
+                  Hi, I'm Kamona, a chatbot. How can I help you?
+                </p>
+                <!-- <span class="text-xs mt-2 text-[#949494]">10:00 AM</span> -->
+                <div class="flex gap-3 mt-3 message_box">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- message section end -->
+          <div class="w-full h-[1px] my-8 bg-[#4F5361]"></div>
+          <!-- form section -->
+          <form
+            class="relative flex items-center"
+            onsubmit="sendMessage(event)"
+            action=""
+          >
+            <input
+              id="messageText"
+              type="text"
+              class="bg-[#3A3F47] text-white placeholder:text-[#949494] text-sm rounded-2xl p-4 w-full outline-none"
+              placeholder="Type your message here..."
+            />
+            <button
+              id="send"
+              type="submit"
+              class="absolute right-0 mr-2 bg-white hover:opacity-50 active:opacity-100 transition-colors py-2 px-3 rounded-xl"
+            >
+              <svg viewBox="0 0 24 24" class="w-5 h-5 fill-[#3A3F47]">
+                <path
+                  d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"
+                />
+              </svg>
+            </button>
+          </form>
+          <!-- form end section  -->
+        </div>
+        <!-- </div> -->
+      </main>
+      <div class="w-fixed w-full flex-shrink flex-grow-0 sidePage">
+        <div class="flex sm:flex-col px-2">
+          <!-- <div class="bg-gray-50 rounded-xl border mb-3 w-full">
+            <form action = "/createVectorStore" method = "post" enctype="multipart/form-data">  
+              <input type="file" name="file" />  
+              <input type = "submit" value="Upload">  
+          </form> 
+          </div> -->
+          <div
+            class="h-screen font-sans text-gray-900 bg-gray-300 border-box hidden uploadPdfFiles"
+          >
+            <div class="flex justify-center w-full mx-auto sm:max-w-lg">
+              <div
+                class="flex flex-col items-center justify-center w-full h-auto my-20 bg-white sm:w-3/4 sm:rounded-lg sm:shadow-xl"
+              >
+                <div class="mt-10 mb-10 text-center">
+                  <h2 class="text-2xl font-semibold mb-2">Upload your files</h2>
+                  <p class="text-xs text-gray-500">
+                    File should be of format .pdf
+                  </p>
+                </div>
+                <form
+                  method="post"
+                  action="/createVectorStore"
+                  class="relative w-4/5 h-32 max-w-xs mb-10 bg-white bg-gray-100 rounded-lg shadow-inner fileform"
+                  enctype="multipart/form-data"
+                >
+                  <input
+                    type="file"
+                    id="file-upload"
+                    class="hidden"
+                    name="file"
+                    accept="application/pdf"
+                    onchange="javascript:this.form.submit();"
+                  />
+                  <label
+                    for="file-upload"
+                    class="z-20 flex flex-col-reverse items-center justify-center w-full h-full cursor-pointer"
+                  >
+                    <p
+                      class="z-10 text-xs font-light text-center text-gray-500"
+                    >
+                      Drag & Drop your files here
+                    </p>
+                    <svg
+                      class="z-10 w-8 h-8 text-indigo-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                      ></path>
+                    </svg>
+                  </label>
+                  <div
+                    class="absolute bottom-0 left-0 w-full h-2 bg-gray-300 rounded-bl-lg rounded-br-lg"
+                  ></div>
+                  <!-- submit button -->
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="bg-gray-100 rounded-xl mb-3 w-full hidden">
+            <form action="/changeVectorStore" method="post">
+              <select name="vectorstore" id="vectorStore" class="w-full">
+                {% for vectorStore in vectorstoreList %}
+                  <option value="{{vectorStore}}">{{vectorStore}}</option>
+                {% endfor %}
+              </select>
+              <input type="submit" value="Change">
+            </form>
+          </div> -->
+
+          <div
+            class="h-screen font-sans text-gray-900 bg-gray-300 border-box flex flex-col justify-center items-center selectPdfVectorStore"
+          >
+          <h2 class="text-3xl font-bold mb-2 font-poppins">Select the PDF VectorStore</h2>
+            <p class="text-xl font-inter text-gray-500">
+              Select the PDF VectorStore you want to use for the search  
+            </p>
+          <div class="flex justify-center w-full mx-auto sm:max-w-lg">
+            <div
+            class="flex flex-col items-center justify-center w-full h-auto my-20 bg-white sm:w-3/4 sm:rounded-lg sm:shadow-xl p-2"
+            >
+              <form action="/changeVectorStore" method="post">
+                <select name="vectorstore" id="vectorStore" class="w-full p-4 text-sm rounded-2xl outline-none">
+                  {% for vectorStore in vectorstoreList %}
+                    <!-- <option value="{{vectorStore}}">{{vectorStore}}</option> -->
+                    <option value="{{vectorStore}}" {% if current_vectorstore == vectorStore %} selected {% endif %}>{{vectorStore}}</option>
+                  {% endfor %}
+                </select>
+                <div class="w-full h-2 bg-gray-300"></div>
+                <input type="submit" value="Change" class="w-full cursor-pointer p-4 text-sm outline-none hover:bg-gray-200 hover:text-gray-800">
+                </form>
+            </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 border w-full hidden page_pdf_view">
+             <canvas id="viewer" class="w-full h-screen"></canvas>
+          </div>
+          <div class="bg-gray-50 border w-full full_pdf_view hidden">
+            <div id="full_viewer" class="w-full h-screen overflow-y-scroll"></div>
+         </div>
+
+        </div>
+      </div>
+    </div>    
+    <script src="{{url_for('static',path='pdfqaJs.js')}}"></script>
+    <script>
+      
+      var myState = {
+        pdf: null,
+        currentPage: 1,
+        zoom: 10,
+      };
+
+      
+
+      function render() {
+        myState.pdf.getPage(myState.currentPage).then((page) => {
+     
+            var canvas = document.getElementById("viewer");
+            var ctx = canvas.getContext('2d');
+ 
+            var viewport = page.getViewport(myState.zoom);
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+     
+            page.render({
+                canvasContext: ctx,
+                viewport: viewport
+            });
+        });
+    }
+
+   // load the whole pdf full_viewer canvas 
+   function renderPDF(url, canvasContainer, options) {
+
+    var options = options || { scale: 1 };
+        
+    function renderPage(page) {
+        var viewport = page.getViewport(options.scale);
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+        
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        canvasContainer.appendChild(canvas);
+        
+        page.render(renderContext);
+    }
+    
+    function renderPages(pdfDoc) {
+        for(var num = 1; num <= pdfDoc.numPages; num++)
+            pdfDoc.getPage(num).then(renderPage);
+    }
+
+    pdfjsLib.disableWorker = true;
+    pdfjsLib.getDocument(url).then(renderPages);
+
+}   
+
+let current_vectorstore = "{{current_vectorstore}}";
+// remove the .pkl from the current_vectorstore
+current_vectorstore = current_vectorstore.slice(0, -4);
+
+
+renderPDF(`{{url_for("pdfs",path="${current_vectorstore}")}}`, document.getElementById('full_viewer'));
+    
+
+function selectSection(sectionOptions){
+  var full_pdf_view = document.querySelector('.full_pdf_view');
+  var page_pdf_view = document.querySelector('.page_pdf_view');
+  var selectPdfVectorStore = document.querySelector('.selectPdfVectorStore');
+  var uploadPdfFiles = document.querySelector('.uploadPdfFiles');
+  var sidePage = document.querySelector('.sidePage');
+
+  if(sectionOptions == 'full_pdf_view'){
+    sidePage.classList.remove('hidden');
+    full_pdf_view.classList.remove('hidden');
+    page_pdf_view.classList.add('hidden');
+    selectPdfVectorStore.classList.add('hidden');
+    uploadPdfFiles.classList.add('hidden');
+  }else if(sectionOptions == 'page_pdf_view'){
+    sidePage.classList.remove('hidden');
+    full_pdf_view.classList.add('hidden');
+    page_pdf_view.classList.remove('hidden');
+    selectPdfVectorStore.classList.add('hidden');
+    uploadPdfFiles.classList.add('hidden');
+  }else if(sectionOptions == 'selectPdfVectorStore'){
+    sidePage.classList.remove('hidden');
+    full_pdf_view.classList.add('hidden');
+    page_pdf_view.classList.add('hidden');
+    selectPdfVectorStore.classList.remove('hidden');
+    uploadPdfFiles.classList.add('hidden');
+  }else if(sectionOptions == 'uploadPdfFiles'){
+    sidePage.classList.remove('hidden');
+    full_pdf_view.classList.add('hidden');
+    page_pdf_view.classList.add('hidden');
+    selectPdfVectorStore.classList.add('hidden');
+    uploadPdfFiles.classList.remove('hidden');
+  }
+  else if(sectionOptions == 'none'){
+    sidePage.classList.add('hidden');
+  }
+}
+
+function showUploadPdfFiles(pageNumber,pageSource){
+  myState.currentPage = pageNumber;
+  pageSourceName = pageSource.split('/')[pageSource.split('/').length - 1];
+  selectSection('page_pdf_view');
+  pdfjsLib.getDocument(`{{url_for("pdfs",path="${pageSourceName}")}}`).then((pdf) => {
+    myState.pdf = pdf;
+    render();
+  });
+}
+</script>
+  </body>
+</html>

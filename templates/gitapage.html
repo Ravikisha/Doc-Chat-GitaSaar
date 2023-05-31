@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  <link rel="stylesheet" href="{{url_for('static', path='gita.css')}}">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <title>GitaSaar</title>
+</head>
+
+<body>
+
+  <div class="overlay">
+    <h1>Gita Saar</h1>
+    <span>ask to gita</span>
+  </div>
+
+  <div class="wrapper">
+
+    <div class="nav">
+      <div class="logo">
+        <h1>
+          <span>gita <br> saar</span>
+          <br>
+          ask to gita
+        </h1>
+      </div>
+
+      <div class="menu-links">
+        <ul>
+          <li><a href="#">home.</a></li>
+          <li><a href="#second">about.</a></li>
+          <li><a href="#demo">demo.</a></li>
+        </ul>
+      </div>
+
+      <div class="scrolldown">scroll</div>
+    </div>
+
+    <div class="text">
+      <div class="title">gita saar</div>
+      <p>
+        find your answer in the holy book of hinduism <br> shrimad bhagwat gita is ready to answer your question
+      </p>
+    </div>
+
+    <div class="watchnow">
+      <i class="fa fa-play"></i>
+      <a href="/gita">Go to Site</a>
+    </div>
+
+   
+
+    <div class="ellipse-container">
+      <div class="ellipse thin"></div>
+      <div class="ellipse thick"></div>
+      <div class="ellipse yellow"></div>
+      <div class="circle1"><span>Vasudev Krishan</span></div>
+      <div class="circle2"><span>Kunti's son Arjuna </span></div>
+    </div>
+
+  </div>
+  <section class="secondPage" id="second">
+    <!-- <div class="animate"></div> -->
+    <div class="bg">
+        <div class="content" data-aos="zoom-in-left">
+            <h1>Bhagwat Gita</h1>
+            <p>
+              The Bhagavad Gita, often referred to as the Gita, is a 700-verse Hindu scripture that is part of the epic Mahabharata, commonly dated to the second century BCE. The Gita is set in a narrative framework of a dialogue between Pandava prince Arjuna and his guide and charioteer Krishna. At the start of the Dharma Yudhha (righteous war) between Pandavas and Kauravas, Arjuna is filled with moral dilemma and despair about the violence and death the war will cause. He wonders if he should renounce and seeks Krishna's counsel, whose answers and discourse constitute the Bhagadvad Gita. Krishna counsels Arjuna to "fulfill his Kshatriya (warrior) duty to uphold the Dharma" through "selfless action". The Krishna–Arjuna dialogue cover a broad range of spiritual topics, touching upon ethical dilemmas and philosophical issues that go far beyond the war Arjuna faces. This has led to the Gita often being described as a concise guide to Hindu philosophy and a practical, self-contained guide to life.
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Bhagavad_Gita" target="_blank">View More</a>
+        </div>
+        <div class="content-image" data-aos="zoom-in-right">
+          <img src="{{url_for('assets', path='pxfuel.jpg')}}" alt="">
+        </div>
+    </div>
+  </section>
+
+  <section class="workingStep">
+    <div class="container" data-aos="fade-down">
+      <div class="inner-container inner-container-1" data-aos="flip-left">
+        <div class="inner-inner-container">
+          <div class="top-section">
+            <h1>
+              The <br />
+              night <br />
+              watch
+            </h1>
+            <p>PLANNING</p>
+          </div>
+          <div class="bottom-section">1</div>
+        </div>
+      </div>
+      <div class="inner-container inner-container-2" data-aos="flip-left">
+        <div class="inner-inner-container">
+          <div class="top-section">
+            <h1>
+              The <br />
+              hardly <br />
+              Worker
+            </h1>
+            <p>EXECUTION</p>
+          </div>
+          <div class="bottom-section">2</div>
+        </div>
+      </div>
+      <div class="inner-container inner-container-3" data-aos="flip-right">
+        <div class="inner-inner-container">
+          <div class="top-section">
+            <h1>
+              The <br />
+              artist in <br />
+              studio
+            </h1>
+            <p>SOLVE</p>
+          </div>
+          <div class="bottom-section">3</div>
+        </div>
+      </div>
+      <div class="inner-container inner-container-4" data-aos="flip-right">
+        <div class="inner-inner-container">
+          <div class="top-section">
+            <h1>
+              End <br />
+              of the <br />
+              City
+            </h1>
+            <p>COMPLETE</p>
+          </div>
+          <div class="bottom-section">4</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="demo" id="demo" data-aos="zoom-in">
+    <div id="particles-js"></div>
+    <div class="demo-container">
+        <h1>
+            GITA SAAR
+            <br>
+            <span>Ravi Kishan</span> 
+        </h1>
+        <a href="/gita" class="refPageButton">Go to Site</a>
+    </div>
+  </section>
+
+  
+
+  <script>
+    AOS.init();
+    TweenMax.to(".overlay h1", 2, {
+      opacity: 0,
+      y: -60,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.to(".overlay span", 2, {
+      delay: .3,
+      opacity: 0,
+      y: -60,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.to(".overlay", 2, {
+      delay: 1,
+      top: "-100%",
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".ellipse-container", 1, {
+      delay: 2,
+      opacity: 0,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".yellow", 1, {
+      delay: 3.5,
+      opacity: 0,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".circle1", 1, {
+      delay: 2.4,
+      opacity: 0,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".circle2", 1, {
+      delay: 2.6,
+      opacity: 0,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".logo", 1, {
+      delay: 3,
+      opacity: 0,
+      y: -100,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.staggerFrom(".menu-links ul li", 1, {
+      delay: 3.2,
+      opacity: 0,
+      x: -100,
+      ease: Expo.easeInOut
+    }, 0.08)
+
+    TweenMax.from(".scrolldown", 1, {
+      delay: 3.4,
+      opacity: 0,
+      y: 100,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".text .title", 1, {
+      delay: 3,
+      opacity: 0,
+      x: 200,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".text p", 1, {
+      delay: 3.2,
+      opacity: 0,
+      x: 200,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.from(".watchnow", 1, {
+      delay: 3.4,
+      opacity: 0,
+      x: 200,
+      ease: Expo.easeInOut
+    })
+
+    TweenMax.staggerFrom(".media ul li", 1, {
+      delay: 3,
+      opacity: 0,
+      y: 100,
+      ease: Expo.easeInOut
+    }, 0.08)
+
+    TweenMax.from(".secondPage .bg", 1, {
+      delay: 3,
+      opacity: 0,
+      y: 100,
+      ease: Expo.easeInOut
+    })   
+
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "edge",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.40246529723245905,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 2,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 0,
+            "size_min": 0,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 224.4776885211732,
+          "color": "#ffffff",
+          "opacity": 0.49705773886831206,
+          "width": 1.2827296486924182
+        },
+        "move": {
+          "enable": true,
+          "speed": 5,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 1122.388442605866,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 100,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    })
+  </script>
+</body>
+
+</html>

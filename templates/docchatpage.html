@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doc Chat</title>
+    <link rel="stylesheet" href="{{url_for('static', path='docchat.css')}}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <!-- Header  -->
+    <!-- <header class="header">
+        <div class="logo">
+            LOGO
+        </div>
+        <ul class="menu-items">
+            <li><a href="#home">HOME.</a></li>
+            <li><a href="#about">ABOUT.</a></li>
+            <li><a href="#contact">CONTACT.</a></li>
+        </ul>
+    </header> -->
+
+    <!-- container  -->
+
+    <div class="container">
+      <!-- Home  -->
+      <div class="container-content home" id="home">
+        <div class="home-bg"></div>
+        <div class="home-heading heading1">
+          <h1>A PLACE FOR <span>STUDYING</span> and</h1>
+        </div>
+        <div class="home-heading heading2">
+          <h1><span>UNDERSTAND</span> FOR ALL BOOKS.</h1>
+        </div>
+      </div>
+      <!-- About  -->
+      <div class="container-content about" id="about">
+        <div class="about-content">
+          <div class="about-heading">
+            <h1>ABOUT</h1>
+          </div>
+          <div class="about-description">
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Id, quaerat! Adipisci voluptas molestiae dolor quas fugit fuga hic ea et? <br> 
+                Sunt optio quam deserunt rerum dolores autem praesentium molestias a voluptate, <br>
+                expedita ipsa atque? Tempore maxime velit perspiciatis debitis praesentium? -->
+            <p>
+              This is a project about teaching LLM to understand the context of
+              pdf files. We are trying<br />
+              to make it understand the context of the pdf files and make it
+              answer the questions <br />about the pdf files. You can upload the
+              pdf files and ask questions about the pdf files. We will<br />
+              try to answer the questions about the pdf files. this application
+              is made using the python and<br />
+              flask. We are using the <b>LangChain</b> for the understanding the
+              context of the pdf files.
+            </p>
+          </div>
+          <div class="about-image">
+            <div class="image"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact  -->
+      <div class="container-content contact" id="contact">
+        <div class="contact-content">
+          <div class="contact-heading">
+            <h1>PROCESS</h1>
+          </div>
+          <div class="contact-reel">
+            <!-- <p>SAY HELLO! ON OUR <a href="">CHANNEL</a>! Thank You❤️</p> -->
+            <ul>
+              <li>Upload the pdf file.</li>
+              <li>Select the vector store</li>
+              <li>Ask the question about the pdf file.</li>
+              <li>Wait for the answer.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="contact-bg"></div>
+      </div>
+
+      <!-- social links  -->
+      <div class="container-content about" id="about">
+        <div class="about-content">
+          <div class="about-heading">
+            <h1>TRAIL</h1>
+          </div>
+          <div class="about-description">
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Id, quaerat! Adipisci voluptas molestiae dolor quas fugit fuga hic ea et? <br> 
+                Sunt optio quam deserunt rerum dolores autem praesentium molestias a voluptate, <br>
+                expedita ipsa atque? Tempore maxime velit perspiciatis debitis praesentium? -->
+            <p>
+              Let's get to the point. We are going to see the page.
+              <a href="/pdfqa" class="gotopage">Go to Page</a>
+            </p>
+          </div>
+          <div class="about-image">
+            <div class="trail-image"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="social-links">
+    <ul>
+        <li><a href="">FACEBOOK.</a></li>
+        <li><a href="">INSTAGRAM.</a></li>
+        <li><a href="">SNAPCHAT.</a></li>
+        <li><a href="">GITHUB.</a></li>
+    </ul>
+   </div> -->
+    </div>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to(".home-heading", {
+        scrollTrigger: {
+          trigger: ".home-heading",
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+        },
+        y: -100
+      });
+      
+      </script>
+  </body>
+</html>

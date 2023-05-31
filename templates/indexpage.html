@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relax Project</title>
+    <link rel="stylesheet" href="{{url_for('static', path='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <span></span>
+            <div class="logo">Relax</div>
+            <ul class="menu">
+                <li><a href="#">about</a></li>
+                <li><a href="/pdfqa">doc chat</a></li>
+                <li><a href="/gita">gita saar</a></li>
+                <li><a href="#">com search</a></li>
+            </ul>
+            <a class="btn" href="https://ravikishan.me" target="_blank">contact</a>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <section class="video-section">
+            <div class="video-container">
+                <video src="{{url_for('assets', path='media/flower.mp4')}}" autoplay loop muted></video>
+            </div>
+            <div class="img-container">
+                <img src="{{url_for('assets', path='media/window.png')}}" alt="" class="img">
+            </div>
+
+            <div class="text-content">
+                <div class="img_txt">
+                    <div class="title sm left">
+                        <span>between</span>
+                    </div>
+                    <div class="title bg left">
+                        <span>Reality</span>
+                    </div>
+                    <div class="title bg right n">
+                        <span>&</span>
+                    </div>
+                    <div class="title bg right">
+                        <span>Intelligence</span>
+                    </div>
+                </div>
+                <p class="txt-bottom">
+                    Let's deep into the world of artificail intelligence
+                </p>
+            </div>
+
+            <div class="v_container">
+                <div class="left-side">
+                    <div class="tv">
+                        <div class="bg">Jump</div>
+                        <div class="sm">of the</div>
+                        <div class="bg bottom">Cliff</div>
+                    </div>
+                    <div class="text-container">
+                        <p>
+                            This project is about the future of natural language processing and artificial intelligence.
+                        </p>
+                        <p>
+                            We are trying to show how LLM can be used in the future to understand the context of the Human language.
+                        </p>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <p>explore projects <i class="fa-solid fa-arrow-right-long"></i></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="boxes-container">
+                <div class="columns box1">
+                    <div class="col col-1">
+                        <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="">
+                        <img src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=436&q=80" alt="">
+                    </div>
+                    <div class="col-2">
+                        <h1>Doc Chat</h1>
+                        <span>Talk to pdf </span>
+                        <div class="line"></div>
+                        <div class="text-box">
+                            <p>
+                                This is a project about teaching LLM to understand the context of pdf files. We are trying to make it understand the context of the pdf files and make it answer the questions about the pdf files.
+                            </p>
+                            <p>
+                                <a href="/docchatpage" class="redirectButton">Doc Chat</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col col-3">
+                        <img src="https://images.unsplash.com/photo-1623276527153-fa38c1616b05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="">
+                        <img src="https://images.unsplash.com/photo-1526243741027-444d633d7365?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="">
+                        <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+                    </div>
+                </div>
+                <div class="columns box2">
+                    <div class="col col-1">
+                        <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="">
+                        <img src="https://e1.pxfuel.com/desktop-wallpaper/86/360/desktop-wallpaper-pol-lord-krishna-and-arjuna.jpg" alt="">
+                    </div>
+                    <div class="col-2">
+                        <h1>Gita Saar</h1>
+                        <span>Ask to Gita</span>
+                        <div class="line"></div>
+                        <div class="text-box">
+                            <p>
+                                This is a project to understand the useful insights from the holy book of hinduism, Bhagwat Gita. We are trying to make it understand the context of the Bhagwat Gita and make it answer the questions about the Bhagwat Gita.
+                            </p>
+                            <p>
+                                <a href="/gitapage" class="redirectButton">Gita Saar</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col col-3">
+                        <img src="https://e1.pxfuel.com/desktop-wallpaper/801/580/desktop-wallpaper-amazon-in-buy-srimad-bhagavad-gita-yatharuup-krishna-virat-roop.jpg" alt="">
+                        <img src="https://w0.peakpx.com/wallpaper/4/517/HD-wallpaper-religion-book-christian-full-screen-hindu-muslim-unity.jpg" alt="">
+                        <img src="https://w0.peakpx.com/wallpaper/158/542/HD-wallpaper-jai-shree-krishna-bhagwan-lord-radhe-shree-krishna-shri-krishna.jpg" alt="">
+                    </div>
+                </div>
+                <div class="columns box3">
+                    <div class="col col-1">
+                        <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80" alt="">
+                        <img src="https://plus.unsplash.com/premium_photo-1681457329877-02842c882fb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=757&q=80" alt="">
+                        <img src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+                    </div>
+                    <div class="col-2">
+                        <h1>ComSearch</h1>
+                        <span>Search Across Internet</span>
+                        <div class="line"></div>
+                        <div class="text-box">
+                            <p>
+                                This is a project to find the best results from the internet which is relevant to the context of the user query and the answers are straight forward and to the point in the form of LLM answers.
+                            </p>
+                            <p>
+                                <a href="/comsearch" class="redirectButton">ComSearch</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col col-3">
+                        <img src="https://images.unsplash.com/photo-1616499370260-485b3e5ed653?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <footer>
+        <div class="logo"><a href="#">Relax</a></div>
+        <a class="btn"  href="https://ravikishan.me" target="_blank">contact</a>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+<script src="{{url_for('static', path='script.js')}}"></script>
+
+</html>

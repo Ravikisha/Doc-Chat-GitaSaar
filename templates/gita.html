@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>GitaSaar</title>
+    <link rel="stylesheet" href="{{url_for('static', path='gitaStyle.css')}}" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              santoshi: ["Santoshi", "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="gradient"></div>
+    </div>
+    <div class="app">
+      <header class="w-full flex justify-center items-center flex-col">
+        <nav class="flex justify-between items-center w-full mb-10 pt-3">
+          <div class="flex items-center">
+            <img
+              src="{{url_for('assets', path='logo.svg')}}"
+              alt="sumz_logo"
+              class="w-28 object-contain"
+            />
+            <h2 class="font-black text-2xl absolute ml-12">Relax Research</h2>
+          </div>
+          <a
+            href="http://github.com/ravikisha"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="black_btn"
+            >Github</a
+          >
+        </nav>
+
+        <h1 class="head_text">
+          Ask Your Life Problem <br class="max-md:hidden" />
+          <span class="orange_gradient">Bhagavat Gita AI</span>
+        </h1>
+        <h2 class="desc">
+          Ask your life problem to Bhagavat Gita AI and get the solution from
+          Bhagavat Gita Shlokas.
+        </h2>
+      </header>
+      <section class="mt-16 w-full max-w-xl">
+        <div class="flex flex-col w-full gap-2">
+          <form
+            class="relative flex justify-center items-center inputForm"
+            onsubmit="sendMessage(event)"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Om_symbol.svg"
+              alt="link-icon"
+              class="absolute left-0 my-2 ml-3 w-5"
+            />
+
+            <input
+              type="text"
+              placeholder="Ask to Bhagavat Gita"
+              required
+              class="url_input peer"
+              id="message_input"
+            />
+            <button
+              type="submit"
+              class="submit_btn peer-focus:border-gray-700 peer-focus:text-gray-700"
+            >
+              <p>↵</p>
+            </button>
+          </form>
+        </div>
+        <!-- make suggestion boxes for the user to select from the list of suggestions -->
+        <div
+          class="suggestions max-w-full rounded-2xl text-[#1A2421] backdrop-blur-lg mt-5 [ p-8 md:p-10 lg:p-10 ] [ bg-gradient-to-b from-white/60 to-white/30 ] [ border-[1px] border-solid border-white border-opacity-30 ] [ shadow-black/70 shadow-2xl ]"
+        >
+          <h2
+            class="font-satoshi font-bold text-gray-600 text-xl blue_gradient"
+          >
+            <span class="blue_gradient">Suggestions</span>
+          </h2>
+          <div class="flex gap-3 flex-wrap my-3">
+            <button
+              class="flex justify-center align-center p-2 rounded-xl bg-yellow-400"
+            >
+              <p>
+                <span class="blue_gradient">1.</span>
+                <span class="font-poppins font-bold text-gray-600 text-sm"
+                  >What is the meaning of life?</span
+                >
+              </p>
+            </button>
+            <button
+              class="flex justify-center align-center p-2 rounded-xl bg-yellow-400"
+            >
+              <p>
+                <span class="blue_gradient">2.</span>
+                <span class="font-poppins font-bold text-gray-600 text-sm"
+                  >What is the path to enlightenment?</span
+                >
+              </p>
+            </button>
+            <button
+              class="flex justify-center align-center p-2 rounded-xl bg-yellow-400"
+            >
+              <p>
+                <span class="blue_gradient">2.</span>
+                <span class="font-poppins font-bold text-gray-600 text-sm"
+                  >What is love?</span
+                >
+              </p>
+            </button>
+            <button
+              class="flex justify-center align-center p-2 rounded-xl bg-yellow-400"
+            >
+              <p>
+                <span class="blue_gradient">3.</span>
+                <span class="font-poppins font-bold text-gray-600 text-sm"
+                  >What happend after death?</span
+                >
+              </p>
+            </button>
+            <button
+              class="flex justify-center align-center p-2 rounded-xl bg-yellow-400"
+            >
+              <p>
+                <span class="blue_gradient">4.</span>
+                <span class="font-poppins font-bold text-gray-600 text-sm"
+                  >How to stay positive?</span
+                >
+              </p>
+            </button>
+          </div>
+        </div>
+        <div class="my-10 max-w-full flex justify-center items-center output">
+          
+        </div>
+      </section>
+    </div>
+    <script src="{{url_for('static',path='gitaJs.js')}}"></script>
+  </body>
+</html>
