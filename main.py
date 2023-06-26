@@ -1,4 +1,3 @@
-"""Main entrypoint for the app."""
 import logging
 import pickle
 from pathlib import Path
@@ -49,10 +48,17 @@ async def get(request: Request):
 @app.get("/gitapage")
 async def get(request: Request):
     return templates.TemplateResponse("gitapage.html",{"request": request})
+@app.get("/gitaanalysis")
+async def get(request: Request):
+    return templates.TemplateResponse("gitaanalysis.html",{"request": request})
 
 @app.get("/docchatpage")
 async def get(request: Request):
     return templates.TemplateResponse("docchatpage.html",{"request": request})
+
+@app.get("/imggen")
+async def get(request: Request):
+    return templates.TemplateResponse("imagegenpage.html",{"request": request})
 
 
 # Gita ai part start
