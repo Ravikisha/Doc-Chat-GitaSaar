@@ -1,1 +1,6 @@
-"# backend" 
+# Gita Saar
+<hr>
+### Video Demo : [https://youtu.be/bSd8_dCmQ0E](https://youtu.be/bSd8_dCmQ0E)
+---
+### Description:
+In this application, we are trying to teach the context of Shrimad Bhagavat Gita to a machine learning model. This model trains the slokas and their meaning of Shrimad Bhagavat Gita. In this application, you can ask any question to Shrimad Bhagavat Gita in natural language and the application tries to find the solution to your daily life problem in the meaning of Gita slokas. Shrimad Bhagavad Gita is a holy religious book of Hinduism. This book is said by Shri Krishna (God in Hinduism). In the middle of the war of Mahabharata, Arjun (one of the main characters of Mahabharata) was confused to fight with his family members. Then Shri Krishna told him the meaning of life and the way to live life. This is the story of Shrimad Bhagavat Gita. In this application, you ask the question about your problem and the machine learning model finds the answer in the meaning of the slokas of Shrimad Bhagavat Gita. This application is very useful for those people who are interested in Shrimad Bhagavat Gita and want to know the meaning of the slokas of Shrimad Bhagavat Gita. This application is also useful for those people who are facing problems in their life and want to know the solution to their problems in the meaning of Shrimad Bhagavat Gita. In this application, you can get the slokas and their translation which is related to your answer and you can get more details about the slokas by clicking on the slokes. 
