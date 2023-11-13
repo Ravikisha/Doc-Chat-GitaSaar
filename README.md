@@ -45,17 +45,27 @@ Welcome to **DocChat-GitaSaar**, a unique project that combines machine learning
 
 To run the applications, follow these steps:
 
-1. **Dependencies Installation:**
+1. **Clone the Project**
+   - Go to the main page of the repository [DocChat-GitaSaar](https://github.com/Ravikisha/DocChat-GitaSaar)
+   - Click on the **Fork** button in the upper right corner.
+   - Now, you should have a copy of the original DocChat-GitaSaar repository in your GitHub account.
+   - Clone the repository using the 
+    ```bash
+   git clone https://github.com/yourusername/DocChat-GitaSaar.git
+   cd DocChat-GitaSaar
+   ```
+   - 
+2. **Dependencies Installation:**
    - Navigate to the root of each application.
    - run the `pip install -r requirements.txt` command to install all dependencies.
    - For the React application, navigate to the `client` directory.
    - Now, run the `npm install` command to install all dependencies.
 
-2. **Run the Applications:**
+3. **Run the Applications:**
    - Execute the necessary commands to start the Flask applications for the first two projects.
    - Run the `run.cmd` file to install all dependencies.
 
-3. **Explore and Contribute:**
+4. **Explore and Contribute:**
    - Access the applications and explore their functionalities.
    - Contribute to the project by following the contribution guidelines provided in the respective repositories.
 
