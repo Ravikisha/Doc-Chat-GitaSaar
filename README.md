@@ -1,6 +1,7 @@
 # DocChat-GitaSaar 📚🌟
 
-<iframe width="873" height="491" src="https://www.youtube.com/embed/bSd8_dCmQ0E" title="Gita Saar :  An Natural Language Application" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![DocChat-GitaSaar](https://i.ytimg.com/vi/bSd8_dCmQ0E/maxresdefault.jpg)](https://www.youtube.com/watch?v=bSd8_dCmQ0E "DocChat-GitaSaar") 
+Click on the image to watch the video. 
 
 ## Team Members 👨‍💻👩‍💻
 <p align="left">
